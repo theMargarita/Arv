@@ -2,7 +2,7 @@
 {
     class Cat : Animal
     {
-        public Cat(int mass, string species, string name, int age, string gender) : base(mass, species, name, age, gender)
+        public Cat(int mass, string species, string name, int age, string gender, bool dangerous) : base(mass, species, name, age, gender, dangerous)
         {
             Age = age;
 
@@ -23,12 +23,28 @@
                 int olderThanTwo = 24 + 4 * (Age - 2);
                 Age = olderThanTwo;
             }
-
-
         }
 
+        //tries some variants of methods 
         public override void makeSound() => Console.WriteLine("The cat goes *meow*");
 
+        //overrides method of dangerousness
+        public override void veryDangous(bool dangerous)
+        {
+            if (Dangerous == true)
+            {
+                Console.WriteLine("Very dangerous kitty");
+            }
+            else if (Dangerous == false)
+            {
+                Console.WriteLine("Lazy cat");
+            }
+        }
 
+        //eating method
+        public override void eating()
+        {
+            Console.WriteLine("The cat is eatig a big fishy");
+        }
     }
 }

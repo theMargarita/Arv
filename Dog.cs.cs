@@ -1,14 +1,36 @@
 ﻿namespace Arv
 {
-    //class Dog : Animal
-    //{
-    //    public override void makeSound()
-    //    {
-    //        Console.WriteLine("The cat goes *meow*");
+    class Dog : Animal
+    {
+        public Dog(int mass, string species, string name, int age, string gender, bool dangerous) : base(mass, species, name, age, gender, dangerous)
+        {
+            Age = age * 7;
+        }
 
-    //    }
-    //    public Dog(string mass, string moving, string name, string gender, int age) : base(mass, moving, name, gender, age)
-    //    {
-    //    }
-    //}
+        //method for woof
+        public override void makeSound()
+        {
+            Console.WriteLine("The dog goes *Woof woof*");
+        }
+        //method for eating 
+        public override void eating()
+        {
+            Console.WriteLine("The dog is eating juicy bone");
+        }
+        
+        //method for dangerous
+        public override void veryDangous(bool dangerous)
+        {
+            if (Dangerous == true)
+            {
+                Console.WriteLine("*Dog goes grrr* \n" +
+                    "If not friendly why friendly shaped");
+            }
+            else
+            {
+                Console.WriteLine("Very good boy");
+            }
+        }
+
+    }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Arv
 {
-    /* klassen ska ha minst 5 egenskaper (properties) som alla djur delar
+    /* 
        klassen ska ha minst 3 metoder som djuren delar
 
         ska ha minst 3 olika djur
@@ -23,22 +23,43 @@
         }
         public string Gender { get; set; }
         public int Age { get; set; }
-        //public bool Dangerous = false;
+        //private bool _dangerous { get; set; } = false;
+        public bool Dangerous = false;
 
-        public Animal(int mass, string species, string name, int age, string gender)
+        public Animal(int mass, string species, string name, int age, string gender, bool dangerous)
         {
             Mass = mass;
             Age = age;
             Name = name;
             Gender = gender;
             Species = species;
+            Dangerous = dangerous;
         }
-        //method that print out the "sound"
+        //method - print out the "sound"
         public virtual void makeSound()
         {
-            Console.WriteLine($"The animal goes *grrr*");
+            Console.WriteLine("The animal goes *grrr*");
         }
 
+        //method - how dangerous is the animal
+        public virtual void veryDangous(bool dangerous)
+        {
+            Dangerous = dangerous;
+
+            if (Dangerous == true)
+            {
+                Console.WriteLine("Very dangerous animal");
+            }
+            else
+            {
+                Console.WriteLine("More friendly");
+            }
+        }
+
+        public virtual void eating()
+        {
+            Console.WriteLine("The animal is eating something.");
+        }
     }
 
 }
