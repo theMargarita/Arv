@@ -12,61 +12,33 @@
         */
     internal class Animal
     {
-        public bool Fluffyness { get; set; }
-        public string Moving { get; set; }
-        public string Name { get; set; }
+        public int Mass { get; set; }
+        public string Species { get; set; }
+        //default 
+        private string _name { get; set; } = "Unknown";
+        public string Name
+        {
+            get { return _name; }
+            set { _name = value; }
+        }
         public string Gender { get; set; }
         public int Age { get; set; }
-      
+        //public bool Dangerous = false;
 
+        public Animal(int mass, string species, string name, int age, string gender)
+        {
+            Mass = mass;
+            Age = age;
+            Name = name;
+            Gender = gender;
+            Species = species;
+        }
         //method that print out the "sound"
         public virtual void makeSound()
         {
-            Console.WriteLine("The animal goes *grrr*");
+            Console.WriteLine($"The animal goes *grrr*");
         }
 
     }
 
-
-
-
-
-    //class Cat : Animal
-    //{
-    //    public override void makeSound() => Console.WriteLine("The cat goes *meow*");
-
-    //    public Cat(int age) : base(age)
-    //    {
-    //        Age = age;
-    //        if (Age == 1)
-    //        {
-    //            //15 human years == 1 cat year
-    //            Age = 15;
-    //        }
-    //        else if (Age == 2)
-    //        {
-    //            //15+9 human year == 2 cat years
-    //            Age = 24;
-    //            //Console.WriteLine(24);
-    //        }
-    //        else if (Age > 2)
-    //        {
-    //            //24 + 4 x (age - 2) == > 2 cat years
-    //            int olderThanTwo = 24 + 4 * (Age - 2);
-    //            Age = olderThanTwo;
-    //        }
-    //    }
-    //}
-
-    //class Dog : Animal
-    //{
-    //    public Dog(int age) : base(age)
-    //    {
-    //        Age = age * 7;
-    //    }
-    //    public override void makeSound()
-    //    {
-    //        Console.WriteLine("The dog goes *woof*");
-    //    }
-    //}
 }

@@ -4,21 +4,18 @@
     {
         static void Main(string[] args)
         {
+            Animal cat = new Cat(2, "Cat", "Fibie", 15, "Female");
+            Console.WriteLine($"" +
+                $"This is a {cat.Species} and is a {cat.Gender}." +
+                $"\nThe {cat.Species}s name is {cat.Name} and is {cat.Age} years in {cat.Species} years and weighs {cat.Mass} kg.");
+            cat.makeSound();
 
-            //objects
-            //Animal dog = new Dog(4);
-            //Animal cat = new Animal()
-            //{
-            //    Name = "Kitty",
-            //    Age = 5,
-            //    Gender = "Female"
+            Console.WriteLine();
 
-            //};
-            //dog.makeSound();
-            //cat.makeSound();
-            //Console.WriteLine(dog.Age);
-            //Console.WriteLine(cat.Age);
-            //cat.DiffirentAge(5);
+           
+
+            //wait before closing
+            Console.ReadKey();
         }
     }
 }
