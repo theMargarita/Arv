@@ -2,7 +2,7 @@
 {
     class Cat : Animal
     {
-        public Cat(int mass, string species, string name, int age, string gender, bool dangerous) : base(mass, species, name, age, gender, dangerous)
+        public Cat(int mass, string species, string name, int age, bool dangerous) : base(mass, species, name, age, dangerous)
         {
             Age = age;
 
