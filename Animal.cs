@@ -1,9 +1,7 @@
 ﻿namespace Arv
 {
     /* 
-       klassen ska ha minst 3 metoder som djuren delar
 
-        ska ha minst 3 olika djur
         dessa djur ska ha defaultvärden för egenskaperna, både de som sätts in i
         basklassen och subklass
         alla dur måste ha en medtod som heter makeSound() som prints out the sound
@@ -21,17 +19,15 @@
             get { return _name; }
             set { _name = value; }
         }
-        public string Gender { get; set; }
         public int Age { get; set; }
         //private bool _dangerous { get; set; } = false;
         public bool Dangerous = false;
 
-        public Animal(int mass, string species, string name, int age, string gender, bool dangerous)
+        public Animal(int mass, string species, string name, int age, bool dangerous)
         {
             Mass = mass;
             Age = age;
             Name = name;
-            Gender = gender;
             Species = species;
             Dangerous = dangerous;
         }
