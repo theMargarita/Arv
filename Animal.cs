@@ -4,7 +4,7 @@
 
         dessa djur ska ha defaultvärden för egenskaperna, både de som sätts in i
         basklassen och subklass
-        alla dur måste ha en medtod som heter makeSound() som prints out the sound
+        alla dur måste ha en medtod som heter MakeSound() som prints out the sound
         det ska finnas en constructor som kan användas för att nskapa nya dur
 
         */
@@ -20,29 +20,26 @@
             set { _name = value; }
         }
         public int Age { get; set; }
-        //private bool _dangerous { get; set; } = false;
-        public bool Dangerous = false;
 
-        public Animal(int mass, string species, string name, int age, bool dangerous)
+        public Animal(int mass, string species, string name, int age)
         {
-            Mass = mass;
-            Age = age;
+            this.Mass = mass;
+            this.Age = age;
             Name = name;
-            Species = species;
-            Dangerous = dangerous;
+            this.Species = species;
         }
         //method - print out the "sound"
-        public virtual void makeSound()
+        public virtual void MakeSound()
         {
             Console.WriteLine("The animal goes *grrr*");
         }
 
         //method - how dangerous is the animal
-        public virtual void veryDangous(bool dangerous)
+        public virtual void VeryDangous(bool dangerous)
         {
-            Dangerous = dangerous;
+            //this.dangerous = dangerous;
 
-            if (Dangerous == true)
+            if (dangerous == true)
             {
                 Console.WriteLine("Very dangerous animal");
             }
@@ -52,9 +49,9 @@
             }
         }
 
-        public virtual void eating()
+        public virtual void Eating()
         {
-            Console.WriteLine("The animal is eating something.");
+            Console.WriteLine("The animal is Eating something that is nom nom for the animal.");
         }
     }
 
