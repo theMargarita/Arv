@@ -1,15 +1,11 @@
 ﻿namespace Arv
 {
-    /* 
-
-        dessa djur ska ha defaultvärden för egenskaperna, både de som sätts in i
-        basklassen och subklass
-        alla dur måste ha en medtod som heter MakeSound() som prints out the sound
-        det ska finnas en constructor som kan användas för att nskapa nya dur
-
-        */
     internal class Animal
     {
+        string NL = Environment.NewLine;
+        string NORMAL = Console.IsOutputRedirected ? "" : "\x1b[39m";
+        string YELLOW = Console.IsOutputRedirected ? "" : "\x1b[93m";
+
         public int Mass { get; set; } = 23;
         public string Species { get; set; } = "Unknown";
         private string _name { get; set; } = "Unknown";
@@ -21,18 +17,18 @@
         public int Age { get; set; } = 0;
         public string Sleep { get; set; } = "Everyone needs sleep";
 
-        public Animal(int mass, string species, string name, int age, string sleep)
+        public Animal(int mass, string species, string _name, int age, string sleep)
         {
             Mass = mass;
             Age = age;
-            Name = name;
+            Name = _name;
             Species = species;
             Sleep = sleep;
         }
         //method - print out the "sound"
         public virtual void MakeSound()
         {
-            Console.WriteLine("The animal goes *grrr*");
+            Console.WriteLine($"The animal goes {YELLOW}*grrr*{NORMAL}");
         }
 
         //method - how dangerous is the animal

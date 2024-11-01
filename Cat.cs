@@ -2,10 +2,20 @@
 {
     class Cat : Animal
     {
+        string NL = Environment.NewLine;
+        string NORMAL = Console.IsOutputRedirected ? "" : "\x1b[39m";
+        string YELLOW = Console.IsOutputRedirected ? "" : "\x1b[93m";
         //default propertie
-        //public int Sleep { get; set; } = 0;
-        public Cat(int mass, string species, string name, int age, string sleep) : base(mass, species, name, age, sleep)
+        private string _playFul { get; set; } = "Very playful";
+        public string PlayFul
         {
+            get { return _playFul; }
+            set { _playFul = value; }
+        }
+        public Cat(int mass, string species, string _name, int age, string sleep, string _playFul) : 
+            base(mass, species, _name, age, sleep)
+        {
+            PlayFul = _playFul;
 
             if (Age == 1)
             {
@@ -24,7 +34,6 @@
                 int olderThanTwo = 24 + 4 * (Age - 2);
                 Age = olderThanTwo;
             }
-
         }
         public void Sleepy(int sleepy)
         {
@@ -38,12 +47,10 @@
             {
                 Console.WriteLine("The cat is sleeping");
             }
-
         }
 
-
         //tries some variants of methods 
-        public override void MakeSound() => Console.WriteLine("The cat goes *meow*");
+        public override void MakeSound() => Console.WriteLine($"The cat goes {YELLOW}*meow*{NORMAL}");
 
         //Eating method
         public override void Eating() => Console.WriteLine("The cat is eatig a big fishy");
@@ -57,15 +64,16 @@
             }
             else if (dangerous == false)
             {
-                Console.WriteLine("Lazy cat");
+                Console.WriteLine("Very friendly, likes cuddles");
             }
         }
 
     }
     class Tiger : Cat
     {
-        public Tiger(int mass, string species, string name, int age, string sleep) : base(mass, species, name, age, sleep)
+        public Tiger(int mass, string species, string name, int age, string sleep, string playFul) : base(mass, species, name, age, sleep, playFul)
         {
         }
     }
+
 }
