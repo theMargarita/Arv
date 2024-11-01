@@ -10,23 +10,24 @@
         */
     internal class Animal
     {
-        public int Mass { get; set; }
-        public string Species { get; set; }
-        //default 
+        public int Mass { get; set; } = 23;
+        public string Species { get; set; } = "Unknown";
         private string _name { get; set; } = "Unknown";
         public string Name
         {
             get { return _name; }
             set { _name = value; }
         }
-        public int Age { get; set; }
+        public int Age { get; set; } = 0;
+        public string Sleep { get; set; } = "Everyone needs sleep";
 
-        public Animal(int mass, string species, string name, int age)
+        public Animal(int mass, string species, string name, int age, string sleep)
         {
-            this.Mass = mass;
-            this.Age = age;
+            Mass = mass;
+            Age = age;
             Name = name;
-            this.Species = species;
+            Species = species;
+            Sleep = sleep;
         }
         //method - print out the "sound"
         public virtual void MakeSound()

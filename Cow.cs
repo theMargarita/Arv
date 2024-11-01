@@ -4,9 +4,25 @@
     {
         public int Colours { get; set; } = 0;
 
-        public void Colour(int colours)
+        public Cow(int mass, string species, string name, int age, int colours, string sleep) : base(mass, species, name, age, sleep)
         {
-            //this.Colours = Colours;
+            //the math is not completly corrct but almost
+            Age = age;
+            if (Age == 1)
+            {
+                Age = 14;
+            }
+            else if (Age == 2)
+            {
+
+                Age = 14 + 4;
+            }
+            else if (Age > 3)
+            {
+                Age = 14 + (4 * age);
+            }
+
+            //scale of colour or something
             switch (Colours = colours)
             {
                 case 1:
@@ -25,37 +41,24 @@
                     Console.WriteLine("The cow is a something");
                     break;
             }
-        }
-            public Cow(int mass, string species, string name, int age, int colour) : base(mass, species, name, age)
-        {
-            //the math is not completly corrct but almost
-            Age = age;
-            if (Age == 1)
-            {
-                Age = 14;
-            }
-            else if(Age == 2)
-            {
-                
-                Age =  14 + 4;
-            }
-            else if (Age > 3)
-            {
-                Age = 14 + (4 * age);
-            }
-        }
 
+        }
+        //method - eating
         public override void Eating()
         {
             Console.WriteLine("The cow is Eating some fresh hay, nom nom");
         }
+
+        //method - sound
         public override void MakeSound()
         {
             Console.WriteLine("The cow goes *moooe*");
         }
+
+        //method - dangerous scale
         public override void VeryDangous(bool dangerous)
         {
-            if(dangerous == true)
+            if (dangerous == true)
             {
                 Console.WriteLine("Cows kills more humans than shark, so very dangerous");
             }
