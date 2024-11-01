@@ -3,8 +3,8 @@
     class Cat : Animal
     {
         //default propertie
-        public bool Sleep { get; set; } = true;
-        public Cat(int mass, string species, string name, int age, bool sleep) : base(mass, species, name, age)
+        //public int Sleep { get; set; } = 0;
+        public Cat(int mass, string species, string name, int age, string sleep) : base(mass, species, name, age, sleep)
         {
 
             if (Age == 1)
@@ -24,25 +24,29 @@
                 int olderThanTwo = 24 + 4 * (Age - 2);
                 Age = olderThanTwo;
             }
-        }
 
-        public void Sleepy(bool sleep)
+        }
+        public void Sleepy(int sleepy)
         {
-            Sleep = sleep;
-            if (sleep == false)
+            //Sleep = sleep;
+            if (sleepy == 0)
             {
                 Console.WriteLine("The cat is running around in hyper mode");
             }
             //true = sleep
-            else
+            else if (sleepy == 1)
             {
-                Console.WriteLine("THe cat is sleeping");
+                Console.WriteLine("The cat is sleeping");
             }
 
         }
 
+
         //tries some variants of methods 
         public override void MakeSound() => Console.WriteLine("The cat goes *meow*");
+
+        //Eating method
+        public override void Eating() => Console.WriteLine("The cat is eatig a big fishy");
 
         //overrides method of dangerousness
         public override void VeryDangous(bool dangerous)
@@ -57,10 +61,11 @@
             }
         }
 
-        //Eating method
-        public override void Eating()
+    }
+    class Tiger : Cat
+    {
+        public Tiger(int mass, string species, string name, int age, string sleep) : base(mass, species, name, age, sleep)
         {
-            Console.WriteLine("The cat is eatig a big fishy");
         }
     }
 }

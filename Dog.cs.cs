@@ -3,11 +3,12 @@
     class Dog : Animal
     {
         public bool personalPoopPlockare { get; set; } = true;
-        public Dog(int mass, string species, string name, int age, bool ppp) : base(mass, species, name, age)
+        public Dog(int mass, string species, string name, int age, bool ppp, string sleep) : base(mass, species, name, age, sleep)
         {
             Age = age * 7;
-        }
 
+        }
+         //method - ppp
         public void Poop(bool ppp)
         {
             personalPoopPlockare = ppp;
@@ -38,7 +39,7 @@
         {
             if (dangerous == true)
             {
-                Console.WriteLine("\n*Dog goes grrr* \n" +
+                Console.WriteLine("\n*Dog goes grrr*" +
                     "If not friendly why friendly shaped");
             }
             else
@@ -48,4 +49,11 @@
         }
 
     }
+    class Husky : Dog
+    {
+        public Husky(int mass, string species, string name, int age, bool ppp, string sleep) : base(mass, species, name, age, ppp, sleep)
+        {
+        }
+    }
+
 }
