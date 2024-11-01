@@ -2,13 +2,18 @@
 {
     class Dog : Animal
     {
+        string NL = Environment.NewLine;
+        string NORMAL = Console.IsOutputRedirected ? "" : "\x1b[39m";
+        string YELLOW = Console.IsOutputRedirected ? "" : "\x1b[93m";
         public bool personalPoopPlockare { get; set; } = true;
-        public Dog(int mass, string species, string name, int age, bool ppp, string sleep) : base(mass, species, name, age, sleep)
+        public Dog(int mass, string species, string _name, int age, bool ppp, string sleep) :
+            base(mass, species, _name, age, sleep)
         {
             Age = age * 7;
 
+
         }
-         //method - ppp
+        //method - ppp
         public void Poop(bool ppp)
         {
             personalPoopPlockare = ppp;
@@ -26,7 +31,7 @@
         //method for woof
         public override void MakeSound()
         {
-            Console.WriteLine("The dog goes *woof woof*");
+            Console.WriteLine($"The dog goes {YELLOW}*woof woof*{NORMAL}");
         }
         //method for Eating 
         public override void Eating()
@@ -39,8 +44,7 @@
         {
             if (dangerous == true)
             {
-                Console.WriteLine("\n*Dog goes grrr*" +
-                    "If not friendly why friendly shaped");
+                Console.WriteLine("If not friendly why friendly shaped");
             }
             else
             {

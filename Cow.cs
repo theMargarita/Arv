@@ -2,9 +2,13 @@
 {
     internal class Cow : Animal
     {
+        string NL = Environment.NewLine;
+        string NORMAL = Console.IsOutputRedirected ? "" : "\x1b[39m";
+        string YELLOW = Console.IsOutputRedirected ? "" : "\x1b[93m";
         public int Colours { get; set; } = 0;
 
-        public Cow(int mass, string species, string name, int age, int colours, string sleep) : base(mass, species, name, age, sleep)
+        public Cow(int mass, string species, string _name, int age, int colours, string sleep) : 
+            base(mass, species, _name, age, sleep)
         {
             //the math is not completly corrct but almost
             Age = age;
@@ -52,7 +56,7 @@
         //method - sound
         public override void MakeSound()
         {
-            Console.WriteLine("The cow goes *moooe*");
+            Console.WriteLine($"The cow goes {YELLOW}*moooe*{NORMAL}");
         }
 
         //method - dangerous scale
