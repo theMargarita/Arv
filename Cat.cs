@@ -2,9 +2,10 @@
 {
     class Cat : Animal
     {
-        public Cat(int mass, string species, string name, int age, bool dangerous) : base(mass, species, name, age, dangerous)
+        //default propertie
+        public bool Sleep { get; set; } = true;
+        public Cat(int mass, string species, string name, int age, bool sleep) : base(mass, species, name, age)
         {
-            Age = age;
 
             if (Age == 1)
             {
@@ -19,30 +20,45 @@
             }
             else if (Age > 2)
             {
-                //24 + 4 x (age - 2) == > 2 cat years
+                //24 + 4 x (Age - 2) == > 2 cat years
                 int olderThanTwo = 24 + 4 * (Age - 2);
                 Age = olderThanTwo;
             }
         }
 
+        public void Sleepy(bool sleep)
+        {
+            Sleep = sleep;
+            if (sleep == false)
+            {
+                Console.WriteLine("The cat is running around in hyper mode");
+            }
+            //true = sleep
+            else
+            {
+                Console.WriteLine("THe cat is sleeping");
+            }
+
+        }
+
         //tries some variants of methods 
-        public override void makeSound() => Console.WriteLine("The cat goes *meow*");
+        public override void MakeSound() => Console.WriteLine("The cat goes *meow*");
 
         //overrides method of dangerousness
-        public override void veryDangous(bool dangerous)
+        public override void VeryDangous(bool dangerous)
         {
-            if (Dangerous == true)
+            if (dangerous == true)
             {
                 Console.WriteLine("Very dangerous kitty");
             }
-            else if (Dangerous == false)
+            else if (dangerous == false)
             {
                 Console.WriteLine("Lazy cat");
             }
         }
 
-        //eating method
-        public override void eating()
+        //Eating method
+        public override void Eating()
         {
             Console.WriteLine("The cat is eatig a big fishy");
         }
