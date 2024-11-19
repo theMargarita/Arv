@@ -6,12 +6,10 @@
         string NORMAL = Console.IsOutputRedirected ? "" : "\x1b[39m";
         string YELLOW = Console.IsOutputRedirected ? "" : "\x1b[93m";
         public bool personalPoopPlockare { get; set; } = true;
-        public Dog(int mass, string species, string _name, int age, bool ppp, string sleep) :
-            base(mass, species, _name, age, sleep)
+        public Dog(int mass, string species, string name, int age, bool ppp, string sleep) :
+            base(mass, species, name, age, sleep)
         {
             Age = age * 7;
-
-
         }
         //method - ppp
         public void Poop(bool ppp)
@@ -33,6 +31,7 @@
         {
             Console.WriteLine($"The dog goes {YELLOW}*woof woof*{NORMAL}");
         }
+
         //method for Eating 
         public override void Eating()
         {
@@ -51,13 +50,12 @@
                 Console.WriteLine("Very good doggo");
             }
         }
-
-    }
-    class Husky : Dog
-    {
-        public Husky(int mass, string species, string name, int age, bool ppp, string sleep) : base(mass, species, name, age, ppp, sleep)
+        public override void ShowInfo()
         {
+            base.ShowInfo();
+
         }
+
     }
 
 }

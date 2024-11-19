@@ -5,26 +5,28 @@
         string NL = Environment.NewLine;
         string NORMAL = Console.IsOutputRedirected ? "" : "\x1b[39m";
         string YELLOW = Console.IsOutputRedirected ? "" : "\x1b[93m";
+        string CYAN = Console.IsOutputRedirected ? "" : "\x1b[96m";
 
+        //auto - properties
+        //default värden
         public int Mass { get; set; } = 23;
         public string Species { get; set; } = "Unknown";
-        private string _name { get; set; } = "Unknown";
-        public string Name
-        {
-            get { return _name; }
-            set { _name = value; }
-        }
+        public string Name { get; set; } = "Unknown";
+
         public int Age { get; set; } = 0;
+
         public string Sleep { get; set; } = "Everyone needs sleep";
 
-        public Animal(int mass, string species, string _name, int age, string sleep)
+        //constructors
+        public Animal(int mass, string species, string name, int age, string sleep)
         {
             Mass = mass;
             Age = age;
-            Name = _name;
+            Name = name;
             Species = species;
             Sleep = sleep;
         }
+
         //method - print out the "sound"
         public virtual void MakeSound()
         {
@@ -34,8 +36,6 @@
         //method - how dangerous is the animal
         public virtual void VeryDangous(bool dangerous)
         {
-            //this.dangerous = dangerous;
-
             if (dangerous == true)
             {
                 Console.WriteLine("Very dangerous animal");
@@ -48,7 +48,16 @@
 
         public virtual void Eating()
         {
-            Console.WriteLine("The animal is Eating something that is nom nom for the animal.");
+            Console.WriteLine($"The {Species} is Eating something that is nom nom for {Name}.");
+        }
+        public virtual void ShowInfo()
+        {
+            Console.WriteLine($"Name: {CYAN}{Name}{NORMAL}");
+            Console.WriteLine($"Typ of animal: {CYAN}{Species}{NORMAL}");
+            Console.WriteLine($"Years: {CYAN}{Age}{NORMAL} in {Species} years");
+            Console.WriteLine($"Weight: {CYAN}{Mass}kg{NORMAL}");
+            Console.WriteLine($"Do {Name} like to sleep? {CYAN} {Sleep}{NORMAL}");
+
         }
     }
 

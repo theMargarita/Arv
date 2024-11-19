@@ -12,9 +12,10 @@
             get { return _playFul; }
             set { _playFul = value; }
         }
-        public Cat(int mass, string species, string _name, int age, string sleep, string _playFul) : 
-            base(mass, species, _name, age, sleep)
+        public Cat(int mass, string species, string name, int age, string sleep, string _playFul) : 
+            base(mass, species, name, age, sleep)
         {
+            //properties 
             PlayFul = _playFul;
 
             if (Age == 1)
@@ -67,13 +68,10 @@
                 Console.WriteLine("Very friendly, likes cuddles");
             }
         }
-
-    }
-    class Tiger : Cat
-    {
-        public Tiger(int mass, string species, string name, int age, string sleep, string playFul) : base(mass, species, name, age, sleep, playFul)
+        public override void ShowInfo()
         {
+            base.ShowInfo();
         }
-    }
 
+    }
 }
