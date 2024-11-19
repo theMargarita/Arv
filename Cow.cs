@@ -7,8 +7,8 @@
         string YELLOW = Console.IsOutputRedirected ? "" : "\x1b[93m";
         public int Colours { get; set; } = 0;
 
-        public Cow(int mass, string species, string _name, int age, int colours, string sleep) : 
-            base(mass, species, _name, age, sleep)
+        public Cow(int mass, string species, string name, int age, int colours, string sleep) : 
+            base(mass, species, name, age, sleep)
         {
             //the math is not completly corrct but almost
             Age = age;
@@ -70,6 +70,10 @@
             {
                 Console.WriteLine("Very kind cow");
             }
+        }
+        public override void ShowInfo()
+        {
+            base.ShowInfo();
         }
     }
 }
